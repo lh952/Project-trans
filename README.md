@@ -1,2 +1,145 @@
 # Project-trans
 Here try to exlain transistor 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AssPhyDSC</title>
+    
+    <style>
+        body {
+            background-color: #222222;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .card {
+            width: 300px;
+            height: 300px;
+            background: #2069ff;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 15px rgba(1,1,1,1);
+            position: relative; 
+            z-index: 1;
+        }
+
+        h2 {
+            background-color: #abcdef;
+            width:300px;
+            color: Blue;
+            padding: 10px 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(1,1,1,1);
+            position:absolute;
+            left:20px;
+            border-radius: 5px;
+            top: 0px;
+        }
+
+        h3 { margin-top: 5%; }
+
+        /* शुरू में टेक्स्ट ब्लर और गायब रहेगा */
+        pre,p {
+            filter: blur(20px);
+            opacity: 0;    
+            margin: 10px;
+            
+            transition: all 0.8s ease;
+            color: white; /* कार्ड पर सफेद अच्छा दिखेगा */
+        }
+
+        /* JavaScript इस क्लास को ऐड करेगा */
+        .reveal {
+            margin-top:0%;
+            font-family: "Arial", sans-serif; 
+            filter: blur(0px) !important; 
+            opacity: 1 !important;         
+            justify-content: center;
+            color: #BBDEFB;
+        }
+
+        .bcard {
+            margin-top: 20px;
+            width: 340px; /* कार्ड के हिसाब से एडजस्ट */
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            height: 40px;   
+            width: 100px;
+            border-radius: 20px;
+            color: white;
+            background: green;
+            cursor: pointer;
+            border: none;
+            font-weight: bold;
+        }
+
+        button:active { transform: scale(0.95); }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h2> Junction Transistor</h2>
+    </div>
+    
+    <div class="card">
+        <h3 style="color:#27FB01; margin:1%;">Introdunction</h3>
+        <!-- यहाँ आप और भी <p> टैग जोड़ सकते हैं -->
+        <p>A junction transistor is a three-segment semiconductor device, with the outer segments made of the same type of semiconductor (p-type body) and the middle segment made of the opposite type.</p>
+        <p style="color: #BBDEFB; font-family:chunkfive">Eg. P-N-P and N-P-N </p>
+        <pre style="color: white">⩨point contact Transistor : 1947<br>⩥ K.J.Bardeen and W.H. Brattain</pre>
+        
+        <pre style="color: white">⩨Junction Transistor : 1951<br>⩥ W. Shockley </pre>
+        
+        
+    </div>
+    
+    <img src="https://www.google.png" alt="transistor">
+    
+
+    <div class="bcard">
+        <button onclick="previous()">previous</button>
+        <button onclick="next()"> ☈ </button>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+
+        function next() {
+            // सारे p टैग्स को हर बार फंक्शन के अंदर ढूंढना बेहतर है
+            const texts = document.querySelectorAll('pre,p');
+
+            if (currentIndex < texts.length) {
+                texts[currentIndex].classList.add('reveal');
+                currentIndex++;
+            } else {
+                alert("End");
+            }
+        }
+    
+    function previous() {
+        const texts = document.querySelectorAll('pre,p');
+        if (currentIndex > 0) {
+            currentIndex--;
+            texts[currentIndex].classList.remove('reveal');
+        } else {
+            alert("begin ");
+        }
+        
+    </script>
+    
+</body>
+</html>
+
+
